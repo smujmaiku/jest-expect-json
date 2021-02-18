@@ -24,11 +24,14 @@ import 'jest-expect-json';
 ```js
 fetch('url', {
 	method: 'POST',
-	body: '{"some": "DATA"}',
+	body: '{"some": "DATA", "more": "DATA!"}',
 })
 expect(fetch).toBeCalledWith('url', {
 	method: 'POST',
-	body: expect.jsonMatching({ some: 'DATA' }),
+	body: expect.jsonMatching({
+		some: 'DATA',
+		more: expect.stringContaining('!'),
+	}),
 });
 ```
 
@@ -39,7 +42,7 @@ expect(fetch).toBeCalledWith('url', {
 ```js
 fetch('url', {
 	method: 'POST',
-	body: '{"some": "DATA", "MORE": "DATA!"}',
+	body: '{"some": "DATA", "more": "unchecked data"}',
 })
 expect(fetch).toBeCalledWith('url', {
 	method: 'POST',

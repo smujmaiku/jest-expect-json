@@ -1,6 +1,6 @@
 {
   "name": "jest-expect-json",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Jest testing with JSON",
   "main": "lib/expect-json.js",
   "types": "lib/expect-json.d.ts",
